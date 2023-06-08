@@ -29,37 +29,57 @@ body {
 </head>
     <body>
 <ol class="interactivities" id="interactivities">
-    <li title="sec-03-walkthrough-03" id="sec-03-walkthrough-03">
+    <li title="c-sec-04-void-func-walkthrough-02" id="c-sec-04-void-func-walkthrough-02">
         <div class="hc-included">
             <div>
-                <p>Walk-through the sample arithemetic code-03</p>
+                <p>Execution flow of the program</p>
                 <div class="e42_walkthrough">
-                    <pre>sankya a;
-a = 2;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;
-a = 2 * a;</pre>
-                    <table style="font-size:x-large"><tr><th>a</th></tr></table>
+                    <pre>#include &quot;భవిష్యత్తులో.నేను&quot;
+
+gaadidhaguddu type_three_times_five();
+gaadidhaguddu nalugu_sarlu_two_rayu();
+
+START
+
+  nalugu_sarlu_two_rayu();
+  nalugu_sarlu_two_rayu();
+  type_three_times_five();
+
+STOP
+
+// mudusarlu 5 rayu
+gaadidhaguddu type_three_times_five()
+{
+  number_rayu(5);
+  space_kottu();
+  number_rayu(5);
+  space_kottu();
+  number_rayu(5);
+  enter_kottu();
+}
+
+// new command
+// type number 2 four times
+gaadidhaguddu nalugu_sarlu_two_rayu()
+{
+  number_rayu(2);
+  space_kottu();
+  number_rayu(2);
+  space_kottu();
+  number_rayu(2);
+  space_kottu();
+  number_rayu(2);
+  enter_kottu();
+}</pre>
+                    <table style="font-size:x-large"><tr></tr></table>
                     <script type="text/javascript">//<![CDATA[
                         e42_walkthrough.setup.push([
-    {"line":2 , "variable": "a",  "answer": 2},
-    {"line":3 , "variable": "a",  "answer": 4},
-    {"line":4 , "variable": "a",  "answer": 8},
-    {"line":5 , "variable": "a",  "answer": 16},
-    {"line":6 , "variable": "a",  "answer": 32},
-    {"line":7 , "variable": "a",  "answer": 64},
-    {"line":8 , "variable": "a",  "answer": 128},
-    {"line":9 , "variable": "a",  "answer": 256},
-    {"line":10 , "variable": "a", "answer": 512},
-    {"line":11 , "variable": "a", "answer": 1024},
-    {"line":12 , "variable": "a", "answer": 2048}
+    {"line": 8,     "gotoline": 29},
+    {"line": 36,    "gotoline": 9},
+    {"line": 9,     "gotoline": 29},
+    {"line": 36,    "gotoline": 10},
+    {"line": 10,    "gotoline": 17},
+    {"line": 22,    "gotoline": 12}
 ])
                     //]]> </script>
                 </div>
