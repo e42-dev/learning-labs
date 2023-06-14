@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Enhance42 Walkthrough</title> 
+<script type="text/javascript" src="https://e42.dev/c/assets/scripts/e42_all_min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://e42.dev/c/assets/css/e42_all_min.css"></link>
+<style type="text/css">
+ol.interactivities>li {
+    list-style: none;
+    margin-bottom: 2em;
+}
+
+.problemheading {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: monospace;
+    border-top: thin dotted black;
+    padding-top: 0.4em;
+}
+
+body {
+    margin-left: 2em;
+    margin-right: 2em;
+    overflow-y: visible;
+    font-size: x-large;
+}
+</style>
+</head>
+    <body>
+<ol class="interactivities" id="interactivities">
+    <li title="c-idhiayithey-01" id="c-idhiayithey-01">
+        <div class="hc-included">
+            <div>
+                <p>Walk-through the sample code.</p>
+                <div class="e42_walkthrough">
+                    <pre>num = 25;
+idhiayithey(num % 3 == 0)
+{
+  number_rayu(num * 3 + 1);
+  num = num/3;
+  number_rayu(num * 3 + 1);
+}
+kakapothey
+{
+  number_rayu(num * 3 + 2);
+  num = num/3;
+  number_rayu(num * 3 + 2);
+}</pre>
+                    <table style="font-size:x-large"><tr><th>num</th><th>output</th></tr></table>
+                    <script type="text/javascript">//<![CDATA[
+                        e42_walkthrough.setup.push([
+    {"line": 1, "variable": "num",      "answer": 25},
+    {"line": 2, "gotoline": 10 },
+    {"line": 10,"variable": "output",   "answer": 77},
+    {"line": 11, "variable": "num",     "answer": 8},
+    {"line": 12,"variable": "output",   "answer": 26}
+])
+                    //]]> </script>
+                </div>
+            </div>
+        </div>
+    </li>
+</ol>
+<div class="vstreport"></div>
+</body>
+</html>
