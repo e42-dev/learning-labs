@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>A CodeCheck Tracer Exercise</title> 
+    <meta charset='utf-8'/> 
+    <link href='https://horstmann.com/codecheck/css/codecheck_tracer.css' rel='stylesheet' type='text/css'/>
+    <script type="module">//<![CDATA[
+import { addExercise, Code, Obj, Frame } from 'https://horstmann.com/codecheck/script/codecheck_tracer.js'
+addExercise(function* (sim) {
+
+const code = sim.add(0, 0, new Code(`
+sankya a = 2;
+sankya b = 3;
+
+a = 10;
+a = b + 2;
+a = a - 2;
+a = a * 2;
+b = 2 * a + b;
+b = b - 13;
+a = 3 * b - a;
+b = b * b;
+`))
+
+const vars = sim.add(5, 0, new Frame())
+vars.a = 2
+yield sim.next('Initialized a')
+code.go(2) 
+vars.b = 3
+yield sim.next('Initialized b')
+code.go(4)
+yield sim.set(vars.a, 10, "Update variable a");
+code.go(5)
+yield sim.set(vars.a, 5, "Update variable a");
+code.go(6)
+yield sim.set(vars.a, 3);
+code.go(7)
+yield sim.set(vars.a, 6);
+code.go(8)
+yield sim.set(vars.b, 15);
+code.go(9)
+yield sim.set(vars.b, 2);
+code.go(10)
+yield sim.set(vars.a, 0);
+code.go(11)
+yield sim.set(vars.b, 4);
+
+})
+//]]>
+    </script>
+  </head> 
+  <body>
+      <h1>AU: C Programming Fundamentals</h1>
+      <h3>See how the state of the variables change.<h3>
+  </body>
+</html>
