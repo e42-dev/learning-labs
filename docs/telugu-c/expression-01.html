@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>A CodeCheck Tracer Exercise</title> 
+    <meta charset='utf-8'/> 
+    <link href='https://horstmann.com/codecheck/css/codecheck_tracer.css' rel='stylesheet' type='text/css'/>
+    <script type="module">//<![CDATA[
+import { addExercise, Code, Obj, Frame } from 'https://horstmann.com/codecheck/script/codecheck_tracer.js'
+addExercise(function* (sim) {
+
+const code = sim.add(0, 0, new Code(`
+sankya n = 21;
+type_number(n * 2);
+n = 2 * n - 1;
+type_number(n + 1);
+n = n / 4;
+type_number(n * 2 + 1);
+n = n % 7;
+type_number(n);
+n = n % 5;
+type_number(n * 7);
+
+`))
+
+const vars = sim.add(5, 0, new Frame())
+yield sim.next('Initialized n')
+vars.n = 21
+code.go(2)
+yield sim.next('Set Output')
+vars.Output = 42
+code.go(3)
+yield sim.set(vars.n, 41);
+code.go(4)
+yield sim.set(vars.Output, 42);
+code.go(5)
+yield sim.set(vars.n, 10);
+code.go(6)
+yield sim.set(vars.Output, 21);
+code.go(7)
+yield sim.set(vars.n, 3);
+code.go(8)
+yield sim.set(vars.Output, 3);
+code.go(9)
+yield sim.set(vars.n, 3);
+code.go(10)
+yield sim.set(vars.Output, 21);
+})
+//]]>
+    </script>
+  </head> 
+  <body>
+      <h3>Variable state and arithmetic expressions<h3>
+  </body>
+</html>
