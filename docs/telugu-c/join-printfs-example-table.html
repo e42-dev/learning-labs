@@ -1,0 +1,107 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Enhance42 Learning Labs</title> 
+    <script type="text/javascript" src="https://e42.dev/c/assets/scripts/e42_all_min.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://e42.dev/c/assets/css/e42_all_min.css"></link>
+
+    <style type='text/css'>
+     ol.interactivities > li {
+       list-style: none;
+       margin-bottom: 2em;
+     }
+     body {
+       margin-left: 2em;
+       margin-right: 2em;
+       overflow-y: visible;
+     }
+    </style>
+  </head> 
+  <body>
+   <ol class='interactivities' id='interactivities'>
+<li title='join-printfs-example-table' id='join-printfs-example-table'><div class='hc-included'>
+<div>
+  <p>For each of the code fragments below, combine the printf statements into single printf statement.</p> 
+  <div class='e42_exampletable'>
+    <table>
+      <tr>
+        <th>Code</th> 
+        <th>Combined printf</th> 
+        <th>Output</th> 
+      </tr> 
+      <tr>
+        <td> <code>
+printf("\n");
+printf("Welcome.\n);
+
+</code></td> 
+        <td><code>printf("\nWelcome.\n);</code></td> 
+        <td>Enter-'Welcome.'-Enter</td> 
+      </tr>
+      <tr><td><code>
+int n = 42;
+printf("%i", n);
+printf(".\n");
+
+</code></td>
+        <td><code>printf("%i.\n", n);</code></td>
+        <td>`42.`-Enter</td>
+      </tr>
+      <tr><td><code>
+int n = 3;
+printf("The square of ");
+printf("%i", n);
+printf(" is ");
+printf("%i", n*n);
+printf(".\n");
+
+</code></td>
+        <td><code>printf("The square of %i is %i.\n", n, n*n);</code></td>
+        <td>`The square of 3 is 9.'-Enter</td>
+      </tr>
+      <tr><td><code>
+int n = 25;
+printf("%i", n);
+printf(" = ");
+printf("%i", n - (n%10));
+printf(" + ");
+printf("%i", n%10);
+
+      </code></td>
+        <td><code>printf("%i = %i + %i", n, n - (n%10), n%10);</code></td>
+        <td>25 = 20 + 5</td>
+      </tr> 
+      <tr>
+        <td> <code>
+int a = 2, b = 3;
+printf("The sum of ")
+printf("%i", a);
+printf(" and ");
+printf("%i", b);
+printf(" is ");
+printf("%i", a+b);
+printf(".\n");
+
+</code> </td> 
+        <td><code>printf("The sum of %i and i% is %i.\n", a, b, a+b);</code></td> 
+        <td>`The sum of 2 and 3 is 5.`-Enter</td> 
+      </tr> 
+    </table>
+    <script type='text/javascript'>//<![CDATA[
+			e42_exampletable.setup.push([
+      /\s*printf\s*\(\s*\"\\nWelcome\.\\n\"\s*\)\s*\;\s*/,
+      /\s*printf\s*\(\s*\"%i\.\\n\",\s*n\s*\)\s*\;\s*/,
+      /\s*printf\s*\(\s*\"The square of %i is %i\.\\n\",\s*n,\s*n\*n\s*\)\s*\;\s*/,
+      /\s*printf\s*\(\s*\"%i = %i \+ %i\",\s*n,\s*n\s*-\s*\(n%10\),\s*n%10\s*\)\s*\;\s*/,
+      /\s*printf\s*\(\s*\"The sum of %i and %i is %i\.\\n\",\s*a,\s*b,\s*a\s*\+\s*b\s*\)\s*\;\s*/,
+])
+   //]]>
+    </script> 
+  </div> 
+</div>
+</div></li>
+</ol>
+  <div class='vstreport'></div>
+</body></html>
