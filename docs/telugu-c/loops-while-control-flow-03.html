@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Loops While Tracer Exercise - 01</title> 
+    <meta charset='utf-8'/> 
+    <link href='https://horstmann.com/codecheck/css/codecheck_tracer.css' rel='stylesheet' type='text/css'/>
+    <script type="module">//<![CDATA[
+import { addExercise, Code, Obj, Frame } from 'https://horstmann.com/codecheck/script/codecheck_tracer.js'
+addExercise(function* (sim) {
+
+const code = sim.add(0, 0, new Code(`
+int counter;
+counter = 4;
+while (counter < 21) {
+  printf("%i", counter);
+  counter = counter + 8;  
+}
+printf("%i", counter);
+
+`))
+
+const vars = sim.add(5, 0, new Frame())
+code.go(2) 
+yield sim.next('Initialized counter')
+vars.counter = 4
+
+// iteration#01
+code.go(3)
+yield code.ask(4)
+vars.Output = yield sim.ask(4, "Output = ")
+code.go(5)
+vars.counter = yield sim.ask(12, "counter = ")
+
+// iteration#02
+code.go(3)
+yield code.ask(4)
+vars.Output = yield sim.ask(12, "Output = ")
+code.go(5)
+vars.counter = yield sim.ask(20, "counter = ")
+
+// iteration#03
+code.go(3)
+yield code.ask(4)
+vars.Output = yield sim.ask(20, "Output = ")
+code.go(5)
+vars.counter = yield sim.ask(28, "counter = ")
+
+// out of while
+code.go(3)
+yield code.ask(7)
+vars.Output = yield sim.ask(28, "Output = ")
+
+})
+//]]>
+    </script>
+  </head> 
+  <body>
+      <h3>Control-flow of while-loop<h3>
+  </body>
+</html>
