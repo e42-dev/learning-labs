@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='content-type'/> 
+    <title>CodeCheck Tracer</title> 
+    <link href='https://horstmann.com/codecheck/../styles.css' rel='stylesheet' type='text/css'/>
+    <link href='https://horstmann.com/codecheck/css/codecheck_tracer.css' rel='stylesheet' type='text/css'/>
+    <script type='module'>//<![CDATA[
+//]]></script>
+  </head> 
+  <body>
+    <h3 id='array-insertion'>Arrays - 01</h3>
+    <div class='codecheck_tracer'><script type='module'>//<![CDATA[
+import { addExercise, Code, Frame, Arr } from 'https://horstmann.com/codecheck/script/codecheck_tracer.js'
+addExercise(function*(sim) {
+
+const code = sim.add(0, 0, new Code(`
+int a[4] = {0, 0, 0, 0};
+int size = 4;
+for (int i = 0; i < size; i = i + 1)
+{
+  a[i] = i + 1;
+}
+printf("%i", a[size-1]);
+`))
+
+const vars = sim.add(6, 0, new Frame())
+vars.a = new Arr()
+vars.a.length = 4
+vars.a[0] = 0
+vars.a[1] = 0
+vars.a[2] = 0
+vars.a[3] = 0
+vars.size = 4
+code.go(3)
+vars.i = ''
+vars.output = ''
+yield sim.start()
+for (vars.i = 0; vars.i < vars.size; vars.i++)
+{
+   yield code.ask(5)
+   yield sim.set(vars.a[vars.i], vars.i + 1);
+   code.go(3)
+}
+yield code.ask(7)
+yield sim.set(vars.output, vars.a[vars.size-1], 'Print the last element')
+
+})// ]]></script></div>    
+  </body>
+</html>
