@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='content-type'/> 
+    <title>CodeCheck Tracer</title> 
+    <link href='https://horstmann.com/codecheck/../styles.css' rel='stylesheet' type='text/css'/>
+    <link href='https://horstmann.com/codecheck/css/codecheck_tracer.css' rel='stylesheet' type='text/css'/>
+    <script type='module'>//<![CDATA[
+//]]></script>
+  </head> 
+  <body>
+    <h3 id='array-insertion'>Arrays - 03</h3>
+    <p>When inserting an element into a partially filled array <code>a</code>, all elements beyond the insertion location must be shifted. This trace shows how it works:</p>
+    <div class='codecheck_tracer'><script type='module'>//<![CDATA[
+import { addExercise, Code, Frame, Arr } from 'https://horstmann.com/codecheck/script/codecheck_tracer.js'
+addExercise(function*(sim) {
+
+const code = sim.add(0, 0, new Code(`
+pos = 1;
+new_element = 3;
+current_size = current_size + 1;
+for (int i = current_size - 1; i > pos; i = i - 1)
+{
+   a[i] = a[i - 1];
+}
+a[pos] = new_element;
+`))
+
+const vars = sim.add(6, 0, new Frame())
+vars.a = new Arr()
+vars.a.length = 7
+vars.a[0] = 2
+vars.a[1] = 8
+vars.a[2] = 11
+vars.a[3] = 14
+vars.a[4] = 17
+vars.a[5] = 0
+vars.a[6] = 0
+vars.current_size = 5
+vars.pos = 1
+vars.new_element = 3
+code.go(3)
+vars.i = ''
+yield sim.start()
+yield sim.next('The size of the partially filled array is incremented')
+vars.current_size++
+code.go()
+for (vars.i = vars.current_size - 1; vars.i > vars.pos; vars.i--)
+{
+   yield code.ask(6)
+   yield sim.set(vars.a[vars.i], vars.a[vars.i - 1]);
+   code.go(4)
+}
+yield code.ask(8)
+yield sim.set(vars.a[vars.pos], vars.new_element, 'Insert the new value')
+
+})// ]]></script></div>    
+  </body>
+</html>

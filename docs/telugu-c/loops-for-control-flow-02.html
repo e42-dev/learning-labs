@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='content-type'/> 
+    <title>CodeCheck Tracer</title> 
+    <link href='https://horstmann.com/codecheck/../styles.css' rel='stylesheet' type='text/css'/>
+    <link href='https://horstmann.com/codecheck/css/codecheck_tracer.css' rel='stylesheet' type='text/css'/>
+    <script type='module'>//<![CDATA[
+//]]></script>
+  </head> 
+  <body>
+    <h3 id='array-insertion'>for loop - 02</h3>
+    <div class='codecheck_tracer'><script type='module'>//<![CDATA[
+import { addExercise, Code, Frame, Arr } from 'https://horstmann.com/codecheck/script/codecheck_tracer.js'
+addExercise(function*(sim) {
+
+const code = sim.add(0, 0, new Code(`
+int i = 20;
+for(i = 0; i < 12; i++)
+{
+  i = i + 4;
+  printf("%i", i);
+}
+printf("%i", i);
+`))
+
+const vars = sim.add(6, 0, new Frame())
+vars.i = ''
+vars.output = ''
+yield sim.start()
+yield sim.set(vars.i, 20, "declare and initialize variable 'i'");
+code.go(2)
+yield sim.set(vars.i, 0, "for loop initialization step");
+for (; vars.i < 12;)
+{
+   yield code.ask(4)
+   yield sim.set(vars.i, vars.i + 4);
+   code.go(5)
+   yield sim.set(vars.output, vars.i);
+   code.go(2)
+   yield sim.set(vars.i, vars.i + 1, "for loop increment step")
+}
+yield code.ask(7)
+yield sim.set(vars.output, vars.i)
+
+})// ]]></script></div>    
+  </body>
+</html>
