@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='content-type'/> 
+    <title>Array program Tracer</title> 
+    <link href='https://horstmann.com/codecheck/../styles.css' rel='stylesheet' type='text/css'/>
+    <link href='https://horstmann.com/codecheck/css/codecheck_tracer.css' rel='stylesheet' type='text/css'/>
+    <script type='module'>//<![CDATA[
+//]]></script>
+  </head> 
+  <body>
+    <h3 id='array-insertion'>2D Arrays - 01</h3>
+    <div class='codecheck_tracer'><script type='module'>//<![CDATA[
+import { addExercise, Code, Frame, Arr, Mat } from 'https://horstmann.com/codecheck/script/codecheck_tracer.js'
+addExercise(function*(sim) {
+
+const code = sim.add(0, 0, new Code(`
+int a[4][4] = {{16, 3, 2, 13},
+               {5, 10, 11, 8},
+               {9, 6, 7, 12},
+               {4, 15, 14, 1}};
+
+int i = 0, j = 0;
+printf("%i", a[i][j]);
+i = 1;
+printf("%i", a[i][j]);
+j = 1;
+printf("%i", a[i][j]);
+i = 2;
+printf("%i", a[i][j]);
+j = 2;
+printf("%i", a[i][j]);
+i = 3;
+printf("%i", a[i][j]);
+j = 3;
+printf("%i", a[i][j]);
+
+`))
+
+const mat = sim.add(5, -1, new Mat([[16, 3, 2, 13], [5, 10, 11, 8], [9, 6, 7, 12], [4, 15, 14, 1]]))
+mat.rowIndex.i = 0
+mat.columnIndex.j = 0
+
+const vars = sim.add(6, 4, new Frame())
+vars.i = 0;
+vars.j = 0;
+vars.output = "";
+code.go(7);
+yield sim.start();
+yield sim.set(vars.output, mat[vars.i][vars.j]);
+
+vars.i = 1;
+mat.rowIndex.i = 1;
+code.go(9);
+yield sim.set(vars.output, mat[vars.i][vars.j]);
+vars.j = 1;
+mat.columnIndex.j = 1;
+code.go(11);
+yield sim.set(vars.output, mat[vars.i][vars.j]);
+
+vars.i = 2;
+mat.rowIndex.i = 2;
+code.go(13);
+yield sim.set(vars.output, mat[vars.i][vars.j]);
+vars.j = 2;
+mat.columnIndex.j = 2;
+code.go(15);
+yield sim.set(vars.output, mat[vars.i][vars.j]);
+
+vars.i = 3;
+mat.rowIndex.i = 3;
+code.go(17);
+yield sim.set(vars.output, mat[vars.i][vars.j]);
+vars.j = 3;
+mat.columnIndex.j = 3;
+code.go(19);
+yield sim.set(vars.output, mat[vars.i][vars.j]);
+
+})// ]]></script></div>    
+  </body>
+</html>
