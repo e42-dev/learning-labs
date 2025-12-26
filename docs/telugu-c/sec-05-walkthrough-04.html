@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Enhance42 Walkthrough</title> 
+<script type="text/javascript" src="https://e42.dev/c/assets/scripts/e42_all_min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://e42.dev/c/assets/css/e42_all_min.css"></link>
+<style type="text/css">
+ol.interactivities>li {
+    list-style: none;
+    margin-bottom: 2em;
+}
+
+.problemheading {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: monospace;
+    border-top: thin dotted black;
+    padding-top: 0.4em;
+}
+
+body {
+    margin-left: 2em;
+    margin-right: 2em;
+    overflow-y: visible;
+    font-size: x-large;
+}
+</style>
+</head>
+    <body>
+<ol class="interactivities" id="interactivities">
+    <li title="sec-05-walkthrough-04" id="sec-05-walkthrough-04">
+        <div class="hc-included">
+            <div>
+                <p>Walk-through C variable and operators </p>
+                <div class="e42_walkthrough">
+                    <pre>sankya age;
+age = 21;
+type_the_number(age * 2);
+age = 2 * age - 1;
+type_the_number(age + 1);
+age = age / 4;
+type_the_number(age * 2 + 1);
+age = age % 7;
+type_the_number(age);
+age = age % 5;
+type_the_number(age * 7)</pre>
+                    <table style="font-size:x-large"><tr><th>age</th><th>Output</th></tr></table>
+                    <script type="text/javascript">//<![CDATA[
+                        e42_walkthrough.setup.push([
+  {"line": 2, "variable": "age", "answer": 21},
+  {"line": 3, "variable": "Output", "answer": 42},
+  {"line": 4, "variable": "age", "answer": 41},
+  {"line": 5, "variable": "Output", "answer": 42},
+  {"line": 6, "variable": "age", "answer": 10},
+  {"line": 7, "variable": "Output", "answer": 21},
+  {"line": 8, "variable": "age", "answer": 3},
+  {"line": 9, "variable": "Output", "answer": 3},
+  {"line": 10, "variable": "age", "answer": 3},
+  {"line": 11, "variable": "Output", "answer": 21}
+  
+])
+                    //]]> </script>
+                </div>
+            </div>
+        </div>
+    </li>
+</ol>
+<div class="vstreport"></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Enhance42 Walkthrough</title> 
+<script type="text/javascript" src="https://e42.dev/c/assets/scripts/e42_all_min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://e42.dev/c/assets/css/e42_all_min.css"></link>
+<style type="text/css">
+ol.interactivities>li {
+    list-style: none;
+    margin-bottom: 2em;
+}
+
+.problemheading {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: monospace;
+    border-top: thin dotted black;
+    padding-top: 0.4em;
+}
+
+body {
+    margin-left: 2em;
+    margin-right: 2em;
+    overflow-y: visible;
+    font-size: x-large;
+}
+</style>
+</head>
+    <body>
+<ol class="interactivities" id="interactivities">
+    <li title="sec-05-walkthrough-03" id="sec-05-walkthrough-03">
+        <div class="hc-included">
+            <div>
+                <p>Walk-through C variable and operators </p>
+                <div class="e42_walkthrough">
+                    <pre>sankya a;
+sankya b;
+a = 5;
+b = 7;
+a = a + b;
+b = a - b;
+a = a - b;</pre>
+                    <table style="font-size:x-large"><tr><th>a</th><th>b</th></tr></table>
+                    <script type="text/javascript">//<![CDATA[
+                        e42_walkthrough.setup.push([
+  {"line": 3, "variable": "a", "answer": 5},
+  {"line": 4, "variable": "b", "answer": 7},
+  {"line": 5, "variable": "a", "answer": 12},
+  {"line": 6, "variable": "b", "answer": 5},
+  {"line": 7, "variable": "a", "answer": 7}
+])
+                    //]]> </script>
+                </div>
+            </div>
+        </div>
+    </li>
+</ol>
+<div class="vstreport"></div>
+</body>
+</html>
